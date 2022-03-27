@@ -1,7 +1,7 @@
 // Import thư viện mongoose
 const mongoose = require('mongoose');
 
-// Phép gán phá hủy cấu trúc đối tượng để lấy thuộc tính Schema của mongoose
+// Phép gán phá hủy cấu trúc đối tượng để lấy thuộc tính Schema của mongoose;;
 const { Schema } = mongoose;
 
 // Khởi tạo Cart Schema MongoDB 
