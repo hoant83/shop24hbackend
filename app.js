@@ -1,6 +1,7 @@
 const express = require("express"); // Tương ứng với import express from 'express'
 const mongoose = require("mongoose"); // Tương ứng với import mongoose from 'mongoose'
 
+
 const productRouter = require("./src/routes/ProductRoute");
 const customerRouter = require("./src/routes/CustomerRoute");
 const orderRouter = require("./src/routes/OrderRoute");
@@ -23,11 +24,13 @@ app.use(function (req, res, next) {
     next();     
 });
 
-const port = 8000;
+// const port = 8000;
+const PORT = process.env.PORT || 8000;
 
 // Kết nối với MongoDB
 async function connectMongoDB() {
-    await mongoose.connect("mongodb://localhost:27017/CRUD_Shop24h");
+    //await mongoose.connect("mongodb://localhost:27017/CRUD_Shop24h");
+    await mongoose.connect("mongodb+srv://hoantmongodb:Thaithikhoan74@cluster0.mqocm.mongodb.net/shop24hbackend?retryWrites=true&w=majority");
 }
 
 //Thực thi kết nối
@@ -48,6 +51,6 @@ app.use("/orderDetails", orderDetailRouter);
 app.use("/carts", cartRouter);
 
 
-app.listen(port, () => {
-    console.log(`App listening on port ${port}`)
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`)
 })
