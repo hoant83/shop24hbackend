@@ -23,7 +23,7 @@ function createOrderDetail (request, response) {
         order: request.params.orderId,
         product: request.params.productId,
         quantity: request.body.quantity,
-        priceEach: filterProductById(request.params.productId)
+        priceEach: request.body.priceEach
     });
 
     orderDetail.save()
@@ -50,13 +50,7 @@ function createOrderDetail (request, response) {
             })
         })
 }
-function filterProductById (paramId) {
-    for(let i = 0; i < productList.length; i++){
-        if(productList[i]._id == paramId){
-           return productList[i].promotionPrice
-        }
-    }
-}
+
 // Get all order of user 
 function getAllOrderDetailOfOrder(req, res) {
     // Lấy orderId từ params URL (Khác với Query URL (sau ?))
